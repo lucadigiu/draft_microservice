@@ -29,4 +29,13 @@ public class ServiceImpl implements UserService{
         return userRepository.save(u);
     }
 
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));}
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
+
 }

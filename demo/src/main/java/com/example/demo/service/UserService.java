@@ -8,4 +8,6 @@ public interface UserService {
 
     List<User> findAll();
     User save(User u);
+    User findById(Long id);
+    void delete(Long id);
 }
