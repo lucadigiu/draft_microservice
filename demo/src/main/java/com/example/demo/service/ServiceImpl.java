@@ -24,4 +24,9 @@ public class ServiceImpl implements UserService{
             .toList();
     }
 
+    @Override
+    public User save(User u) {
+        return userRepository.save(u);
+    }
+
 }

@@ -2,14 +2,19 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.User;
 import com.example.demo.service.ServiceImpl;
 
 import lombok.AllArgsConstructor;
+
 
 
 
@@ -24,5 +29,12 @@ public class UserController {
     public List<User> findAll() {
         return serviceImpl.findAll();
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public User save(@RequestBody User u) {
+        return serviceImpl.save(u);
+    }
+    
     
 }
